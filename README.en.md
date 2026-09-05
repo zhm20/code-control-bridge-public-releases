@@ -42,24 +42,6 @@ local implementation.
    commit, normal push, and optional no-ff merge, then verify the branch, commit, and
    remote result. Acceptance never implies merge authorization.
 
-> Beta36 remained unpublished because of its GTS Root R4-only TLS gap; beta37 added
-> the dual-root bundle but was rejected before signing because its reader CDHash pins
-> were stale. Beta38 then completed its immutable tag, Formal Candidate, signed
-> PKG/SBOM, Mac mini real-tunnel/27-tool/Skill v6/v8 checks, and ChatGPT Web
-> Refresh/list/read validation. Public-candidate assembly nevertheless found an
-> unresolved `not_run` status in the tagged offline manual, so work stopped before
-> any public Release, trust/downloads, or product-site publication. Beta38 remains a
-> successful but unpublished immutable attempt. Beta39 completed its Candidate and
-> device validation, but its immutable Release omitted the separate versioned Release
-> Notes attachment and is frozen incomplete at 13/14 assets. Beta40 uses a new tag,
-> Candidate, PKG, SBOM, and complete 14-asset set without changing product behavior,
-> the dual-root CA bundle, the 27-tool/Skill contract, or reader generation.
-
-Beta40 does not rotate the readers again. A Mac already migrated to `beta38-v1`
-does not repeat `/usr/local/bin/ccb keychain repair`. A Mac upgrading directly from
-beta35 or an earlier version still performs the one-time repair
-after installation, before starting the service.
-
 ## Recover without rerunning implementation
 
 ### Result-first Review evidence
@@ -192,35 +174,6 @@ beta40:
    `ccb_delivery_external_publish_reconcile`.
 4. Save or republish the App. Start a new ChatGPT Web conversation and verify that
    all 27 tools and Skills v6/v8 are visible before beginning delivery.
-
-## beta39 incomplete release record
-
-The beta39 Candidate and its 13 uploaded assets remain immutable, but the GitHub
-Release lacks the separate `RELEASE_NOTES-0.1.0-beta.39.md` attachment. It is not
-a complete distributable release and must not be downloaded or used.
-
-| Item | Frozen fact |
-| --- | --- |
-| Version | `0.1.0-beta.39` |
-| Tool surface | `tool_surface_ref:ccb_transparent_web_delivery_v3` |
-| Delivery ledger | migration v9 |
-| Skills | plan v6 / delivery v8 |
-| Immutable tag | `v0.1.0-beta.39` |
-| Source commit | `c2bed729257b2f371aa906f3aa464d9e3902a57b` |
-| Formal Candidate ID | `sha256:605239fdcb6ddbaff6a86a46f3094ca611dbe6256e163ea5bd56eb566b2d356f` |
-| GitHub Release state | `incomplete immutable prerelease; 13/14 assets; do not use` |
-| Release date | `2026-09-05` |
-| Package | `0.1.0-beta.39.pkg` |
-| Package SHA-256 | `794d416ec29d9eeb8bd9a11f47e9aba6230fbb25c97cda3e93874f13b56399d0` |
-| Buyer verifier SHA-256 | `b7ceb7c5e9b6700ce89638cedf2dfd387de765bc8aa53de505a0816e0c9044fc` |
-| Release public key SPKI DER SHA-256 | `796d69af8f8ef6b74551573eded3c54474b02e6f1e464889dd068c1b116a8dec` (recheck against the independent trust record before publication) |
-| Control-plane CA bundle | `/Library/Application Support/Code Control Bridge/app/trust/gts-root-r4-ca-bundle.crt`; GTS Root R4 + ISRG Root X1; SHA-256 `709ce419f95333d64de6086948e2e76dc9c9367a6e0d99a62dbbf12e73939007` |
-| Reader generation | `beta38-v1`; beta39 does not rotate it again |
-| Third-party notices | `THIRD_PARTY_NOTICES-0.1.0-beta.39.md` |
-| SBOM SHA-256 | `2f6160123b0cc5096669cc836a66c4e1ad92a9f974a51d38977adc491572866b` |
-
-Do not install from the [beta39 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.39).
-It remains only as an immutable incident record; its assets are not backfilled or replaced.
 
 ## beta40 current public release
 

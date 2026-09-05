@@ -36,20 +36,6 @@ Code Control Bridge（CCB）把普通 ChatGPT Pro Web 聊天与本地 Codex
 6. **经你授权后交付**：精确执行或对账 commit、普通 push 和可选 no-ff merge，
    并核对分支、提交与远端结果。接受交付不等于自动获得合并授权。
 
-> beta36 因 GTS Root R4-only TLS 缺口未公开；beta37 加入双根后又因旧 reader
-> CDHash pin 在签名前被拒绝。beta38 随后完成 immutable tag、Formal Candidate、
-> 签名 PKG/SBOM、Mac mini real tunnel/27 tools/Skill v6/v8，以及 ChatGPT Web
-> Refresh/list/read 验证，但公开候选组装发现 tag 内离线手册仍含未关闭的
-> `not_run` 状态，因此在任何公开 Release、trust/downloads 或官网发布前停止。
-> beta38 保持成功但未公开且不可改写。beta39 完成 Candidate 与设备验证，但 immutable
-> Release 漏掉独立的版本化 Release Notes 附件，因此以 13/14 资产冻结且不可使用。
-> beta40 以新 tag、Candidate、PKG、SBOM 和完整 14 资产修复公开交付，不改产品行为、
-> 双根 CA、27-tool/Skill 合同或 `beta38-v1` reader generation。
-
-beta40 没有再次旋转 reader。已经完成 `beta38-v1` 迁移的 Mac 不需要重复执行
-`/usr/local/bin/ccb keychain repair`；从 beta35 或更早版本直接升级、尚未完成
-该迁移的 Mac，仍需在安装后主动执行一次 repair，再启动服务。
-
 ## 恢复不再重跑实现
 
 ### Result-first Review evidence
@@ -169,34 +155,6 @@ ChatGPT MCP App 已保存的工具快照。安装 beta40 后：
    `ccb_delivery_external_publish_reconcile`。
 4. 保存或重新发布 App，在新建 ChatGPT Web 会话中确认 27 个工具以及 Skill v6/v8
    可见后再开始交付。
-
-## beta39 不完整发布记录
-
-beta39 的 Candidate 与 13 个已上传资产保持不可变，但 GitHub Release 缺少独立的
-`RELEASE_NOTES-0.1.0-beta.39.md` 附件，因此不是完整可分发版本，不应下载或使用。
-
-| 项目 | 冻结事实 |
-| --- | --- |
-| Version | `0.1.0-beta.39` |
-| Tool surface | `tool_surface_ref:ccb_transparent_web_delivery_v3` |
-| Delivery ledger | migration v9 |
-| Skills | plan v6 / delivery v8 |
-| Immutable tag | `v0.1.0-beta.39` |
-| Source commit | `c2bed729257b2f371aa906f3aa464d9e3902a57b` |
-| Formal Candidate ID | `sha256:605239fdcb6ddbaff6a86a46f3094ca611dbe6256e163ea5bd56eb566b2d356f` |
-| GitHub Release 状态 | `incomplete immutable prerelease; 13/14 assets; do not use` |
-| Release date | `2026-09-05` |
-| Package | `0.1.0-beta.39.pkg` |
-| Package SHA-256 | `794d416ec29d9eeb8bd9a11f47e9aba6230fbb25c97cda3e93874f13b56399d0` |
-| Buyer verifier SHA-256 | `b7ceb7c5e9b6700ce89638cedf2dfd387de765bc8aa53de505a0816e0c9044fc` |
-| Release public key SPKI DER SHA-256 | `796d69af8f8ef6b74551573eded3c54474b02e6f1e464889dd068c1b116a8dec`（发布前从独立信任记录复核） |
-| Control-plane CA bundle | `/Library/Application Support/Code Control Bridge/app/trust/gts-root-r4-ca-bundle.crt`；GTS Root R4 + ISRG Root X1；SHA-256 `709ce419f95333d64de6086948e2e76dc9c9367a6e0d99a62dbbf12e73939007` |
-| Reader generation | `beta38-v1`；beta39 不再次旋转 |
-| 第三方 notices | `THIRD_PARTY_NOTICES-0.1.0-beta.39.md` |
-| SBOM SHA-256 | `2f6160123b0cc5096669cc836a66c4e1ad92a9f974a51d38977adc491572866b` |
-
-不要从 [beta39 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.39)
-下载安装；该页面只保留 immutable 事故记录，修复不回填或覆盖其资产。
 
 ## beta40 当前公开版本
 
