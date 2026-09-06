@@ -128,7 +128,7 @@ writing, recovery, and acceptance.
 
 </details>
 
-The beta40 current release retains MCP surface
+The beta41 current release retains MCP surface
 `tool_surface_ref:ccb_transparent_web_delivery_v3`. Tool availability can vary
 with account state, staged rollout, and OpenAI policy. Use the
 [independent trust record](https://trust.zhm20.com/ccb/) for published evidence.
@@ -164,7 +164,7 @@ into repetitive authorization prompts.
 
 Local `/usr/local/bin/ccb service restart` updates the CCB runtime, but it does not
 rewrite the tool snapshot already saved by a ChatGPT MCP App. After installing
-beta40:
+beta41:
 
 1. Restart the CCB service.
 2. In the ChatGPT MCP App's **Action control** or **Configure Actions**, use
@@ -175,34 +175,12 @@ beta40:
 4. Save or republish the App. Start a new ChatGPT Web conversation and verify that
    all 27 tools and Skills v6/v8 are visible before beginning delivery.
 
-## beta40 current public release
+## beta41 current public release
 
-Beta40 uses a new tag, Formal Candidate, and complete 14-attachment set. The product
-runtime, 27 tools, Skill v6/v8, dual-root CA bundle, and readers are unchanged.
-Functional evidence comes from beta38 Web validation and beta39 installed validation;
-no beta40 device installation or ChatGPT Web Refresh is claimed.
+Current version: **0.1.0-beta.41**.
 
-| Item | Current value |
-| --- | --- |
-| Version | `0.1.0-beta.40` |
-| Tool surface | `tool_surface_ref:ccb_transparent_web_delivery_v3` |
-| Skills | plan v6 / delivery v8 |
-| Immutable tag | `v0.1.0-beta.40` |
-| Source commit | `75f3fc73424d3b127a1e8379f797adfcea153497` |
-| Formal Candidate ID | `sha256:37893532c2fab0a3722add6ee88ab6b9fa52626f6a506dec51a02998e4ebc924` |
-| GitHub Release state | `published immutable prerelease; 14/14 assets` |
-| Release date | `2026-09-05` |
-| Package | `0.1.0-beta.40.pkg` |
-| Package SHA-256 | `8ae7b4f54cbb9bdfd1a884615be724b0a44e766b441bace88d41c71943565019` |
-| Buyer verifier SHA-256 | `b7ceb7c5e9b6700ce89638cedf2dfd387de765bc8aa53de505a0816e0c9044fc` |
-| Release public key SPKI DER SHA-256 | `796d69af8f8ef6b74551573eded3c54474b02e6f1e464889dd068c1b116a8dec` |
-| Control-plane CA bundle SHA-256 | `709ce419f95333d64de6086948e2e76dc9c9367a6e0d99a62dbbf12e73939007` |
-| Reader generation | `beta38-v1`; beta40 does not rotate it again |
-| Third-party notices | `THIRD_PARTY_NOTICES-0.1.0-beta.40.md` |
-| SBOM SHA-256 | `a65c37bd08703f89c3c9943277a22130cf96692f0caee42fa013ccf7a3a620cf` |
+Download the macOS Apple Silicon package, signature and verification files, SBOM, and user manual from the [beta41 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.41).
 
-Get the package, statement, signature, verifier, SBOM, compatibility notice, Release
-Notes, notices, and user manual from the [beta40 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.40).
 
 ## Download and verification
 
