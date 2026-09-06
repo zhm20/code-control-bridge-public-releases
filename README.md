@@ -117,7 +117,7 @@ Code Control Bridge（CCB）把普通 ChatGPT Pro Web 聊天与本地 Codex
 
 </details>
 
-beta40 当前版本沿用的 MCP surface 为
+当前版本的 MCP surface 为
 `tool_surface_ref:ccb_transparent_web_delivery_v3`。工具能力可能随账户状态、
 灰度发布和 OpenAI 政策变化；发布证据以
 [独立信任记录](https://trust.zhm20.com/ccb/)为准。
@@ -145,7 +145,7 @@ external merge finalize、新范围、凭据或 MFA，以及真实外部漂移�
 ## 升级后刷新 ChatGPT 工具
 
 本地 `/usr/local/bin/ccb service restart` 只会更新 CCB runtime，不会自动改写
-ChatGPT MCP App 已保存的工具快照。安装 beta40 后：
+ChatGPT MCP App 已保存的工具快照。安装 beta41 后：
 
 1. 重启 CCB service。
 2. 在 ChatGPT MCP App 的 **Action control** 或 **Configure Actions** 中执行
@@ -156,33 +156,12 @@ ChatGPT MCP App 已保存的工具快照。安装 beta40 后：
 4. 保存或重新发布 App，在新建 ChatGPT Web 会话中确认 27 个工具以及 Skill v6/v8
    可见后再开始交付。
 
-## beta40 当前公开版本
+## beta41 当前公开版本
 
-beta40 使用新的 tag、Formal Candidate 与完整 14 项附件。产品 runtime、27 个工具、
-Skill v6/v8、双根 CA 和 reader 均保持不变；功能依据为 beta38 Web 验证与 beta39
-实装验证，本版本没有重复执行设备安装或 ChatGPT Web Refresh。
+当前版本：**0.1.0-beta.41**。
 
-| 项目 | 当前值 |
-| --- | --- |
-| Version | `0.1.0-beta.40` |
-| Tool surface | `tool_surface_ref:ccb_transparent_web_delivery_v3` |
-| Skills | plan v6 / delivery v8 |
-| Immutable tag | `v0.1.0-beta.40` |
-| Source commit | `75f3fc73424d3b127a1e8379f797adfcea153497` |
-| Formal Candidate ID | `sha256:37893532c2fab0a3722add6ee88ab6b9fa52626f6a506dec51a02998e4ebc924` |
-| GitHub Release 状态 | `published immutable prerelease; 14/14 assets` |
-| Release date | `2026-09-05` |
-| Package | `0.1.0-beta.40.pkg` |
-| Package SHA-256 | `8ae7b4f54cbb9bdfd1a884615be724b0a44e766b441bace88d41c71943565019` |
-| Buyer verifier SHA-256 | `b7ceb7c5e9b6700ce89638cedf2dfd387de765bc8aa53de505a0816e0c9044fc` |
-| Release public key SPKI DER SHA-256 | `796d69af8f8ef6b74551573eded3c54474b02e6f1e464889dd068c1b116a8dec` |
-| Control-plane CA bundle SHA-256 | `709ce419f95333d64de6086948e2e76dc9c9367a6e0d99a62dbbf12e73939007` |
-| Reader generation | `beta38-v1`；beta40 不再次旋转 |
-| 第三方 notices | `THIRD_PARTY_NOTICES-0.1.0-beta.40.md` |
-| SBOM SHA-256 | `a65c37bd08703f89c3c9943277a22130cf96692f0caee42fa013ccf7a3a620cf` |
+从 [beta41 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.41) 下载 macOS Apple Silicon 安装包、签名与校验文件、SBOM 和用户手册。
 
-从 [beta40 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.40)
-获取安装包、发布声明、签名、校验脚本、SBOM、兼容性说明、Release Notes、notices 和用户手册。
 
 ## 下载与验真
 
