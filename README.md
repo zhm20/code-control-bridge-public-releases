@@ -10,7 +10,7 @@ Code Control Bridge（CCB）把普通 ChatGPT Pro Web 聊天与本地 Codex
 任务上下文中完成代码、测试、返工和经授权的 Git 交付。
 
 你不必反复复制长计划、追问本地任务进度，或只凭一段摘要审查改动。CCB 通过
-27 个边界明确的工具、两份 Skill 和两种执行方式，把计划、实施、审查、恢复与
+33 个边界明确的工具、三份 Skill 和两种执行方式，把计划、实施、审查、恢复与
 验收连接起来，同时把真正需要判断的决定保留给你。
 
 让 ChatGPT Pro 做规划与审查，让 Codex 把周额度留给真正的本地实现。
@@ -19,6 +19,10 @@ Code Control Bridge（CCB）把普通 ChatGPT Pro Web 聊天与本地 Codex
 > ChatGPT Pro Web 聊天进行规划与审查、使用 Codex 进行本地实施的场景。
 > 实际额度、重置周期、模型、CCB 插件（MCP）能力和可用性以你的账户实时显示及
 > OpenAI 当前政策为准；ChatGPT Work 不应被理解为额外的独立额度。
+
+## 普通 Task：直接运行与反馈
+
+运行现有程序、分析数据、生成文件和局部调整时，使用 `ccb-web-task-execution` **v1**。目录可以非 Git，无需 HTML、publication、分支、Review 或 merge。长期复用的产品实现与正式代码发布继续使用 Delivery。Task 保留商业许可、授权目录与文件保护；复用同一任务上下文，不重复相同请求。结果、文件和内容批准分别判断。
 
 ## 一条从计划到交付的 Loop
 
@@ -63,9 +67,9 @@ Code Control Bridge（CCB）把普通 ChatGPT Pro Web 聊天与本地 Codex
   `merge_source=external_verified`，并只释放当前 Delivery 拥有的 workspace
   或 lease。
 
-## 27 个工具
+## 33 个工具
 
-工具按职责分为六组。读取、写入、恢复和验收各有明确边界。
+工具按职责分为七组。读取、写入、恢复和验收各有明确边界。
 
 <details>
 <summary><strong>展开完整工具清单</strong></summary>
@@ -115,20 +119,30 @@ Code Control Bridge（CCB）把普通 ChatGPT Pro Web 聊天与本地 Codex
 - `ccb_merge_execute`
 - `ccb_delivery_finalize`
 
+### 普通 Task（6）
+
+- `ccb_task_preflight`
+- `ccb_task_start`
+- `ccb_task_status`
+- `ccb_task_result_page`
+- `ccb_task_cancel`
+- `ccb_task_artifact_read`
+
 </details>
 
 当前版本的 MCP surface 为
-`tool_surface_ref:ccb_transparent_web_delivery_v3`。工具能力可能随账户状态、
+`tool_surface_ref:ccb_transparent_web_tasks_v6`。工具能力可能随账户状态、
 灰度发布和 OpenAI 政策变化；发布证据以
 [独立信任记录](https://trust.zhm20.com/ccb/)为准。
 
-## 两份 Skill，两种执行方式
+## 三份 Skill，两种执行方式
 
-- `ccb-web-plan-authoring` **v6**：从真实项目出发澄清需求，形成决策完整、
+- `ccb-web-plan-authoring` **v7**：从真实项目出发澄清需求，形成决策完整、
   可审阅、可校验的 HTML 实施计划。
-- `ccb-web-delivery-loop` **v8**：组织 Controller 与本地 Codex 的持续交付，
+- `ccb-web-delivery-loop` **v10**：组织 Controller 与本地 Codex 的持续交付，
   覆盖 result-first、Review evidence 恢复、外部发布与 merge 对账、验收以及
-  经授权的 Git 操作。旧版交付 ref 仍会读取当前 v8 正文。
+  经授权的 Git 操作。旧版交付 ref 仍会读取当前 v10 正文。
+- `ccb-web-task-execution` **v1**：普通本地运行、同 Task 反馈、去重恢复、取消与产物读取。
 - `primary_checkout`：直接在永久项目目录中工作，适合小项目或当前只有一项主要任务。
 - `linked_worktree`：为并行任务使用独立 worktree 和分支，减少工作区互相干扰。
 
@@ -145,22 +159,21 @@ external merge finalize、新范围、凭据或 MFA，以及真实外部漂移�
 ## 升级后刷新 ChatGPT 工具
 
 本地 `/usr/local/bin/ccb service restart` 只会更新 CCB runtime，不会自动改写
-ChatGPT MCP App 已保存的工具快照。安装 beta41 后：
+ChatGPT MCP App 已保存的工具快照。安装 beta43 后：
 
 1. 重启 CCB service。
 2. 在 ChatGPT MCP App 的 **Action control** 或 **Configure Actions** 中执行
    **Refresh**；如果当前界面没有 Refresh，则按平台当前流程重新保存或发布，并使用
    **Scan Tools**。
-3. 审查工具 diff，显式启用新增的 `ccb_delivery_review_recover` 和
-   `ccb_delivery_external_publish_reconcile`。
-4. 保存或重新发布 App，在新建 ChatGPT Web 会话中确认 27 个工具以及 Skill v6/v8
+3. 审查工具 diff，启用六个 `ccb_task_*` 动作，并更新 Skill list/read 的输入输出 schema。
+4. 保存或重新发布 App，在新建 ChatGPT Web 会话中确认 33 个工具以及 Skill v7/v10/v1
    可见后再开始交付。
 
-## beta41 当前公开版本
+## beta43 当前公开版本
 
-当前版本：**0.1.0-beta.41**。
+当前版本：**0.1.0-beta.43**。
 
-从 [beta41 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.41) 下载 macOS Apple Silicon 安装包、签名与校验文件、SBOM 和用户手册。
+从 [beta43 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.43) 下载 macOS Apple Silicon 安装包、签名与校验文件、SBOM 和用户手册。
 
 
 ## 下载与验真

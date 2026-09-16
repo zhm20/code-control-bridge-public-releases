@@ -12,7 +12,7 @@ delivery through in the same task context.
 
 You do not have to keep copying long plans, chasing local progress, or reviewing a
 change from a short summary. CCB connects planning, implementation, review, recovery,
-and acceptance through 27 bounded tools, two Skills, and two execution modes, while
+and acceptance through 33 bounded tools, three Skills, and two execution modes, while
 leaving the decisions that matter with you.
 
 Plan and review in ChatGPT Pro, then save your Codex weekly allowance for hands-on
@@ -24,6 +24,10 @@ local implementation.
 > CCB plugin (MCP) capabilities, and availability follow your live account display
 > and current OpenAI policy. ChatGPT Work should not be treated as an additional,
 > independent allowance.
+
+## Ordinary Tasks: run and refine
+
+Use `ccb-web-task-execution` **v1** to run existing programs, analyze data, generate files and make scoped local adjustments. Directories may be non-Git; no HTML, publication, branch, Review or merge is required. Reusable product implementation and code publication continue through Delivery. Tasks retain licensing, authorized roots and file protection, reuse one task context and deduplicate requests. Execution results, files and content approval remain separate.
 
 ## One loop from plan to delivery
 
@@ -73,7 +77,7 @@ local implementation.
   `merge_source=external_verified` and releases only the workspace or lease owned
   by that Delivery.
 
-## 27 tools
+## 33 tools
 
 The tools are grouped into six jobs, with explicit boundaries around reading,
 writing, recovery, and acceptance.
@@ -126,22 +130,32 @@ writing, recovery, and acceptance.
 - `ccb_merge_execute`
 - `ccb_delivery_finalize`
 
+### Ordinary Task (6)
+
+- `ccb_task_preflight`
+- `ccb_task_start`
+- `ccb_task_status`
+- `ccb_task_result_page`
+- `ccb_task_cancel`
+- `ccb_task_artifact_read`
+
 </details>
 
-The beta41 current release retains MCP surface
-`tool_surface_ref:ccb_transparent_web_delivery_v3`. Tool availability can vary
+The beta43 current release retains MCP surface
+`tool_surface_ref:ccb_transparent_web_tasks_v6`. Tool availability can vary
 with account state, staged rollout, and OpenAI policy. Use the
 [independent trust record](https://trust.zhm20.com/ccb/) for published evidence.
 
-## Two Skills and two execution modes
+## Three Skills and two execution modes
 
-- `ccb-web-plan-authoring` **v6**: starts from the real project, clarifies the
+- `ccb-web-plan-authoring` **v7**: starts from the real project, clarifies the
   request, and produces a decision-complete, reviewable, digest-verified HTML
   implementation plan.
-- `ccb-web-delivery-loop` **v8**: coordinates the Controller and local Codex across
+- `ccb-web-delivery-loop` **v10**: coordinates the Controller and local Codex across
   result-first capture, Review-evidence recovery, external publish and merge
   reconciliation, acceptance, and authorized Git operations. Cached older delivery
-  refs remain compatibility aliases for the current v8 body.
+  refs remain compatibility aliases for the current v10 body.
+- `ccb-web-task-execution` **v1**: ordinary local execution, same-Task feedback, recovery, cancellation and artifact reads.
 - `primary_checkout`: works directly in the permanent project directory, suited to
   a small project or one active primary task.
 - `linked_worktree`: uses a separate worktree and branch for parallel tasks, keeping
@@ -164,22 +178,21 @@ into repetitive authorization prompts.
 
 Local `/usr/local/bin/ccb service restart` updates the CCB runtime, but it does not
 rewrite the tool snapshot already saved by a ChatGPT MCP App. After installing
-beta41:
+beta43:
 
 1. Restart the CCB service.
 2. In the ChatGPT MCP App's **Action control** or **Configure Actions**, use
    **Refresh**. If Refresh is unavailable in the current UI, follow the platform's
    current save or publish flow and use **Scan Tools**.
-3. Review the tool diff and explicitly enable `ccb_delivery_review_recover` and
-   `ccb_delivery_external_publish_reconcile`.
+3. Review the tool diff, enable the six `ccb_task_*` actions, and update the Skill list/read input and output schemas.
 4. Save or republish the App. Start a new ChatGPT Web conversation and verify that
-   all 27 tools and Skills v6/v8 are visible before beginning delivery.
+   all 33 tools and Skills v7/v10/v1 are visible before beginning delivery.
 
-## beta41 current public release
+## beta43 current public release
 
-Current version: **0.1.0-beta.41**.
+Current version: **0.1.0-beta.43**.
 
-Download the macOS Apple Silicon package, signature and verification files, SBOM, and user manual from the [beta41 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.41).
+Download the macOS Apple Silicon package, signature and verification files, SBOM, and user manual from the [beta43 Release](https://github.com/zhm20/code-control-bridge-public-releases/releases/tag/v0.1.0-beta.43).
 
 
 ## Download and verification
